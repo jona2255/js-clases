@@ -69,3 +69,8 @@ class Escudero extends Personajes {
     super.comunicar(this.frase);
   }
 }
+const joffrey = new Rey("Joffrey", "Baratheon", 44, 5);
+const jamie = new Luchador("Jamie", "Lannister", 35, "Espada", 6);
+const daenerys = new Luchador("Daenerys", "Targaryen", 22, "Dragones", 10);
+const tyrion = new Asesor("Tyrion", "Lannister", 30, daenerys);
+const bronn = new Escudero("Bronn", null, 23, jamie, 5);
