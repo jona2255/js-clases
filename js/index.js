@@ -4,17 +4,21 @@ class Personaje {
   familia;
   edad;
   estado;
+  frase;
   constructor(nombre, familia, edad) {
     this.nombre = nombre;
     this.familia = familia;
     this.edad = edad;
     this.estado = "vivo";
   }
-  comunicar(frase) {
-    console.log(frase);
+  comunicar() {
+    return this.frase;
   }
   morir() {
     this.estado = "muerto";
+  }
+  set frase(frase) {
+    this.frase = frase;
   }
 }
 class Rey extends Personaje {
@@ -23,9 +27,6 @@ class Rey extends Personaje {
   constructor(nombre, familia, edad, añosReinado) {
     super(nombre, familia, edad);
     this.añosReinado = añosReinado;
-  }
-  comunicar() {
-    super.comunicar(this.frase);
   }
 }
 class Luchador extends Personaje {
@@ -38,9 +39,6 @@ class Luchador extends Personaje {
 
     this.destreza = destreza > 10 ? 10 : destreza;
   }
-  comunicar() {
-    super.comunicar(this.frase);
-  }
 }
 class Asesor extends Personaje {
   asesora;
@@ -48,9 +46,6 @@ class Asesor extends Personaje {
   constructor(nombre, familia, edad, asesora) {
     super(nombre, familia, edad);
     this.asesora = asesora;
-  }
-  comunicar() {
-    super.comunicar(this.frase);
   }
 }
 class Escudero extends Personaje {
@@ -64,20 +59,15 @@ class Escudero extends Personaje {
     }
     this.pelotismo = pelotismo;
   }
-  comunicar() {
-    super.comunicar(this.frase);
-  }
 }
+
 const joffrey = new Rey("Joffrey", "Baratheon", 44, 5);
 const jamie = new Luchador("Jamie", "Lannister", 35, "Espada", 6);
 const daenerys = new Luchador("Daenerys", "Targaryen", 22, "Dragones", 10);
 const tyrion = new Asesor("Tyrion", "Lannister", 30, daenerys);
 const bronn = new Escudero("Bronn", null, 23, jamie, 5);
 
-/*
- la array del apartado 2 se tiene que llamar "personajes"
-*/
-
+const personajes = [joffrey, jamie, daenerys, tyrion, bronn]
 
 
 matar(personajes);
