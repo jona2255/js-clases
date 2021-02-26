@@ -20,7 +20,11 @@ class Personaje {
   set frase(frase) {
     this.frase = frase;
   }
+  get getSerie() {
+    return `El nombre de la serie es ${this.serie}`;
+  }
 }
+
 class Rey extends Personaje {
   añosReinado;
   frase = "Vais a morir todos";
@@ -69,6 +73,29 @@ const bronn = new Escudero("Bronn", null, 23, jamie, 5);
 
 const personajes = [joffrey, jamie, daenerys, tyrion, bronn]
 
+const listaMensajes = guardarMensajes(personajes);
+
+function guardarMensajes(listaPersonajes) {
+  const listaMensajes = [];
+  for (const personaje of listaPersonajes) {
+    if (personaje instanceof Luchador) {
+      listaMensajes.push(personaje.comunicar());
+    }
+  }
+  return listaMensajes;
+}
+
+mostrarMensajes(personajes);
+
+function mostrarMensajes(listaMensajes) {
+  for (const mensaje of listaMensajes) {
+    consola.log(personaje.getSerie);
+  }
+}
+
+for (const mensaje of listaMensajes) {
+  console.log(mensaje)
+}
 
 matar(personajes);
 resumen(personajes);
